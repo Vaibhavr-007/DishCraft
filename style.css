@@ -1,0 +1,332 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+body{
+    background-color: #2b1d0f;
+    color: white;
+}
+
+header nav{
+    background-color: #212121;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+header nav h1{
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color:rgb(239, 157, 49);
+    /* text-transform: uppercase; */
+}
+
+
+header nav form{
+    display: flex;
+    justify-content: center;
+}
+form input[type="text"]{
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+form input[type="text"],button[type="submit"]{
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 4px;
+}
+form button[type="submit"]{
+    background-color: #f44336;
+    color:white;
+    cursor:pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+form button[type="submit"]:hover,.recipe button:hover,.recipe-closed-btn:hover{
+    background-color: #ff5c5c;
+
+}
+.recipe-container{
+    text-align: center;
+    margin-top:20px;
+
+}
+
+/* Add these CSS rules to your style.css file */
+
+/* Style the top section */
+.recipe-container .top-section {
+    /* background-color: #f1f1f1; */
+    padding: 20px;
+    text-align: center;
+}
+
+.recipe-container .top-section h2 {
+    font-size: 24px;
+    color: white;
+}
+
+/* Style the bottom section */
+.recipe-container .bottom-section {
+    /* background-color: #fff; */
+    color: #ffe6e4;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.recipe-container .bottom-section .bottom-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.recipe-container .bottom-section p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 10px;
+    opacity: 0; /* Initially set opacity to 0 */
+    animation: fade-in 1s ease-in-out forwards; 
+}
+@keyframes fade-in {
+    from {
+        opacity: 0; /* Start with opacity 0 */
+        transform: translateY(20px); /* Move the paragraph 20px down */
+    }
+    to {
+        opacity: 1; /* End with opacity 1 */
+        transform: translateY(0); /* Reset the position */
+    }
+}
+
+
+/* styling the main section that we added through javascript thing */
+
+.recipe-container{
+    text-align: center;
+    margin-top:20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-gap:40px;
+    width: 80%;
+    margin:10px auto;
+    padding: 20px;
+    place-items: center;
+}
+.recipe{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    color:#000;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(78,73,73,0.1),-5px -5px 10px rgba(34,34,34,0.5);
+    cursor: pointer;
+    max-width: 350px;
+    transition: transform 0.3s ease-in-out;
+}
+.recipe:hover{
+    transform: scale(1.08);
+}
+
+.recipe img{
+    height:300px;
+}
+.recipe h3{
+    font-size: 24px;
+    margin-block: 5px;
+}
+.recipe p{
+    font-size: 20px;
+    color:#4a4a4a;
+    margin:5px 0;
+}
+
+.recipe span{
+    font-weight: 600;
+}
+.recipe button{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:18px auto;
+    background-color: #f44336;
+    color: white;
+    border:none;
+}
+
+/* reciepe details */
+.recipe-details{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    background-color: #694c2f;
+    border-radius: 12px;
+    width: 40%;
+    height: 60%;
+    font-size: 20px;
+    transition: all 0.5s ease-in-out;
+    overflow-y: scroll;
+}
+
+/* adding scroll bar to recipe details popup */
+.recipe-details::-webkit-scrollbar{
+    width: 10px;
+}
+.recipe-details::-webkit-scrollbar-thumb{
+    background:#b5b5ba ;
+    border-radius: 16px;
+    --webkit-border-radius:16px;
+}
+
+
+/* adding scroll bar on whole body */
+body::-webkit-scrollbar{
+    width: 16px;
+}
+body::-webkit-scrollbar-thumb{
+    background:#a1a1a1 ;
+}
+body::-webkit-scrollbar-track{
+    background:#ebebeb;
+}
+
+
+.recipe-details-content{
+    padding: 30px;
+}
+.recipeName{
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+.ingredientList li{
+    margin-top: 10px;
+    margin-left:20px;
+}
+.recipeInstructions p{
+    line-height: 30px;
+    white-space: pre-line;
+}
+
+/* styling for close button */
+.recipe-closed-btn{
+    border: none;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f4433c;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.recipeName,.ingredientList,.recipeInstructions{
+    margin-bottom: 20px;
+}
+
+
+
+/* responsive code */
+@media screen and (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    header nav h1{
+        margin: 2px auto;
+    }
+    header nav form {
+        width: 100%;
+    }
+
+    form input[type="text"],
+    button[type="submit"] {
+        font-size: 16px;
+    }
+
+    .recipe-container {
+        width: 90%;
+    }
+
+    .recipe-details {
+        width: 90%;
+        height: 80%;
+    }
+
+    .recipe-details-content {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header nav form {
+        flex-direction: column;
+        align-items: stretch;
+    } 
+    form input[type="text"] {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .recipe-container {
+        grid-template-columns: 1fr;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .recipe {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .recipe h3 {
+        font-size: 20px;
+    }
+
+    .recipe p {
+        font-size: 16px;
+    }
+
+    .recipe button {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .recipe-details {
+        width: 95%;
+        height: 85%;
+    }
+
+    .recipe-details-content {
+        padding: 10px;
+    }
+
+    .recipe-closed-btn {
+        font-size: 16px;
+        padding: 6px;
+        width: 25px;
+        height: 25px;
+    }
+
+    .recipeName,
+    .ingredientList,
+    .recipeInstructions {
+        margin-bottom: 10px;
+    }
+}
